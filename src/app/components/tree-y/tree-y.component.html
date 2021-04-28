@@ -1,0 +1,40 @@
+
+
+<div style="margin-bottom: 1rem">
+  <button pButton type="button" label="פתח הכול" (click)="expandAll()" style="margin: .5rem"></button>
+  <button pButton type="button" label="קיבוץ" (click)="collapseAll()" style="margin: .5rem"></button>
+</div>
+
+
+<p-tree [value]="files2" [draggableNodes]="true" [droppableNodes]="true" draggableScope="self" droppableScope="self">
+</p-tree>
+
+<button pButton type="button" (click)="showInsert=true" *ngIf="!showInsert" style="margin: .5rem">יצירת פסקה
+  חדשה</button>
+
+<div class="container" *ngIf="showInsert" style="margin: 1rem">
+  <h2>עריכת פסקה נוספת</h2>
+  <span>שם פסקה <input type="text" pInputText [(ngModel)]="leaftext" /></span>
+  <div style="margin: 1rem">
+    <span>כולל פרמטרים</span><br>
+
+    <p-radioButton name="parameter" value="yes" [(ngModel)]="withParameter" inputId="withParameter1"></p-radioButton>
+    <label for="withParameter1">כן</label>
+    <br>
+    <p-radioButton name="parameter" value="no" [(ngModel)]="withParameter" inputId="withParameter2"></p-radioButton>
+    <label for="withParameter2">לא</label><br><br>
+
+
+    <span>תנאי להופעת הפסקה</span><br>
+    <p-radioButton name="conditions" value="yes" [(ngModel)]="withConditions" inputId="withConditions1">
+    </p-radioButton>
+    <label for="withConditions1">כן</label>
+    <br>
+    <p-radioButton name="conditions" value="no" [(ngModel)]="withConditions" inputId="withConditions2"> </p-radioButton>
+    <label for="withConditions2">לא</label>
+
+  </div>
+
+  <button pButton type="button" (click)="addfather()">!הוסף פסקה</button>
+
+</div>
